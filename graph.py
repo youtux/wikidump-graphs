@@ -127,6 +127,7 @@ def aggreagate_stats(file_path_list):
     keys = list(stats.keys())
 
     for file_path in file_path_list:
+        print('reading', file_path)
         new_stat = get_data(file_path)
         for key in keys:
             for type_key in ('global', 'last_revision'):
