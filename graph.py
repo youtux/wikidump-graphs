@@ -38,7 +38,7 @@ def get_data(filepath):
 
 
 def fill_serie(list_key_values, stop, start=0):
-    serie = [None for i in range(start, stop)]
+    serie = [None for _ in range(start, stop)]
     for key, value in list_key_values:
         if key >= len(serie):
             continue
@@ -72,7 +72,7 @@ def draw_section_counts(stats, output_path, x_axis_length=50):
 
         section_counts_graph.add(type_name, serie_for_graph)
 
-    section_counts_graph.render_to_png(output_path + '.png')
+    section_counts_graph.render_to_png(f'{output_path}.png')
 
 
 def draw_section_names(stats, output_path_prefix, x_axis_length=50):
@@ -105,7 +105,7 @@ def draw_section_names(stats, output_path_prefix, x_axis_length=50):
         section_counts_graph.add(type_name, serie_for_graph_rev)
         section_counts_graph.x_labels = [d['label'] for d in serie_for_graph_rev]
 
-        section_counts_graph.render_to_png(output_path_prefix + '.' + type_key + '.png')
+        section_counts_graph.render_to_png(f'{output_path_prefix}.{type_key}.png')
 
 
 def aggreagate_stats(file_path_list):
